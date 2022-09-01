@@ -1,2 +1,14 @@
-<p>security works!</p>
+<h3 class="title"><u><i>Login</i></u></h3>
+<form class="form">
+<mat-form-field class="example-full-width" appearance="standard">
+<input matInput placeholder="Enter your username" name="username"
+[(ngModel)] ="username">
+</mat-form-field>
+<mat-form-field class="example-full-width" appearance="fill">
+<input matInput placeholder="Enter your password" value="" name="password" type="password" [(ngModel)]= "password">
+</mat-form-field>
+<button mat-raised-button color="primary" class ="buttons" (click)="getToken(username, password)">Login</button>
+<a routerLink='register'> <button mat-raised-button class="buttons"  color="primary">Register</button></a>
+<span *ngIf="show"> <button mat-button color="accent">Login success !!</button></span>
+</form>
 

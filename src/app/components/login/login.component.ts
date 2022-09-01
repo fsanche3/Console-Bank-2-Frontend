@@ -10,21 +10,29 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: string  = 'google';
-  password: string  ='google';
-  response:any;
+  show : boolean = false;
+  username: string  ='';
+  password: string  =''; 
+  token: string= '';
 
-  constructor(private authServ: AuthService, private router: Router) {
-
-   }
+  constructor(private authServ: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getToken(this.username, this.password);
   }
 
   getToken(username: string, password: string){
-    let resp=this.authServ.login(username, password);
-resp.subscribe(data=> console.log(data));
+    this.authServ.login(username, password)?.subscribe(
+      (response : any) => {
+        this.token = response
+      },
+    )
+  if (this.token == ''){
+  console.log("wrong entry")
+  } else {
+  this.show = true;
+  console.log(this.token)
+  sessionStorage.setItem('token', this.token);
+  this.router.navigate(['home']);}
   }
 
 

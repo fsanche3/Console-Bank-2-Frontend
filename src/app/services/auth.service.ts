@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Bankuser } from '../models/bankuser';
 
@@ -9,7 +9,8 @@ import { Bankuser } from '../models/bankuser';
 })
 export class AuthService {
 
-  url: string = `${environment.baseUrl}`;
+  tokenUrl: string = `${environment.baseUrl}`;
+  registerUrl: string = `${environment.baseUrl}/user`;
 
  public token: string = '';
 
@@ -26,8 +27,20 @@ export class AuthService {
 */
   login(username: string, password: string) {
     const payload = {username:username, password:password};
-    return this.http.post<string>(`${this.url}/login`, payload, {responseType: 'text' as 'json' });
+    return this.http.post<string>(`${this.tokenUrl}/login`, payload, {responseType: 'text' as 'json' }).pipe(
+      catchError((err) => {
+        return throwError(() => new Error('Entered wrong credentials'));
+      })
+    );
   }
 
+  register(name: string, username: string, password: string, email: string ){
+    const payload = {name, username, password, email};
+    return this.http.post<any>(`${this.registerUrl}/register`, payload).pipe(
+      catchError((err) => {
+        return throwError(() => new Error('Username taken'));
+      })
+    );
+  }
 
 }
