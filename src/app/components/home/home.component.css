@@ -1,0 +1,16 @@
+.container{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+}
+
+.inner{
+    border: solid 4px purple;
+    width: 100%;
+
+}
+
+.box{
+    margin: 15px;
+width: 100%;
+}

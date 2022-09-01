@@ -1,0 +1,18 @@
+mat-sidenav-container.mat-drawer-container.mat-sidenav-container{
+    color: #fff;
+    
+}
+.mat-drawer-container {
+    background-color: white; 
+}
+
+element.style {
+    height: 2px;
+    min-height:1px;
+    min-width: 100%;
+    width: 100%;
+}
+
+.nav-right{
+    position: relative;
+}
