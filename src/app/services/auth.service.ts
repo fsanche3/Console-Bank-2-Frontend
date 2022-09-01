@@ -34,9 +34,9 @@ export class AuthService {
     );
   }
 
-  register(name: string, username: string, password: string, email: string ){
+  register(name: string, username: string, password: string, email: string ): Observable<boolean>{
     const payload = {name, username, password, email};
-    return this.http.post<any>(`${this.registerUrl}/register`, payload).pipe(
+    return this.http.post<boolean>(`${this.registerUrl}/register`, payload).pipe(
       catchError((err) => {
         return throwError(() => new Error('Username taken'));
       })

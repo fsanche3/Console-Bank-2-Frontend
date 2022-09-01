@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  register(){
+    this.router.navigate(['register']);  }
+
   getToken(username: string, password: string){
     this.authServ.login(username, password)?.subscribe(
       (response : any) => {
@@ -27,12 +30,13 @@ export class LoginComponent implements OnInit {
       },
     )
   if (this.token == ''){
-  console.log("wrong entry")
+    alert("Wrong username or password, try again or register account");
+
   } else {
-  this.show = true;
-  console.log(this.token)
-  sessionStorage.setItem('token', this.token);
-  this.router.navigate(['home']);}
+     this.show = true;
+     sessionStorage.setItem('token', this.token);
+     this.router.navigate(['home']);
+    }
   }
 
 
