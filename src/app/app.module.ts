@@ -18,8 +18,9 @@ import {MatInputModule} from '@angular/material/input';
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AccountsComponent } from './components/accounts/accounts.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { CheckingsComponent } from './components/checkings/checkings.component';
+import { SavingsComponent } from './components/savings/savings.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { TransactionsComponent } from './components/transactions/transactions.co
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    AccountsComponent,
     TransactionsComponent,
+    CheckingsComponent,
+    SavingsComponent,
     
   ],
   imports: [

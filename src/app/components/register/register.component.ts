@@ -30,6 +30,9 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  home(){
+    this.router.navigate(['home']);
+  }
   register(name: string, username: string, password: string, email: string){
     this.authServ.register(name,username, password,email)?.subscribe(
       (response : boolean) => {

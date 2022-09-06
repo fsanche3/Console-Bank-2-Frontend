@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountsComponent } from './components/accounts/accounts.component';
+import { CheckingsComponent } from './components/checkings/checkings.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SavingsComponent } from './components/savings/savings.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {path : 'home',  component: HomeComponent},
-  {path : 'accounts', component: AccountsComponent},
+  {path: 'checkings', component: CheckingsComponent},
+  {path: 'savings', component: SavingsComponent},
   {path : 'profile', component: ProfileComponent},
   {path : 'transactions', component: TransactionsComponent},
   {path : 'login', component: LoginComponent},

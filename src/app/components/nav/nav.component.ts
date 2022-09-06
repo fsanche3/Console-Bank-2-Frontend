@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
     this.loggedInUser = null;
     this.authServ.logOut();
     this.loggedOut.emit();
-    this.home();
+    this.router.navigate(['login']);
   }
 
 }

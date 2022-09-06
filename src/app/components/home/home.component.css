@@ -1,16 +1,50 @@
 .container{
-    display: grid;
+    display: block;
     justify-content: center;
-    width: 100%;
+    width: 85%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.inner{
-    border: solid 4px purple;
-    width: 100%;
+.spacer{
+    marging-right:5px;
+    margin: 10px
 
 }
 
 .box{
-    margin: 15px;
-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;    width: 100%;
+    margin: 30px;
+    width: 100%;
+}
+
+.box button{
+    background-color: ivory;
+    cursor: pointer;
+}
+
+.box button a{
+ font-size: 16px;
+}
+
+.box button a:hover{
+    color: white;
+   }
+
+.box button:hover{
+    background-color: purple;
+    transition: ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}
+
+.buttons{
+margin-left: 68%;
+}
+
+.title {
+    font-family:"Times New Roman",Georgia,Serif;
+
+    font-size: 25px;
+    margin: 8px;
+    margin-left: 11px;
 }

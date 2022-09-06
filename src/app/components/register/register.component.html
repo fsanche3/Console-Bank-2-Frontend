@@ -18,6 +18,7 @@
         [(ngModel)] ="email">
         </mat-form-field>
     <div class="buttons">
+        <a (click)="home()"><button mat-raised-button class="buttons" color="primary">Back</button></a>
      <button mat-raised-button class="buttons" (click)="register(name,username, password, email)" color="primary">Register</button>
      <span *ngIf="show">
         <h1 style="color: red;"> {{ message }}</h1>
