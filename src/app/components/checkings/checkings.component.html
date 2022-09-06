@@ -1,1 +1,11 @@
-<p>checkings works!</p>
+<main id = 'main'>
+    <h2> Checkings Accounts</h2>
+    <ng-container *ngIf="accounts.length>0 else message">
+       <b>Search: </b><input [(ngModel)]="searchText" type="text">       
+        <app-check 
+        *ngFor = "let acc of accounts" [checkingAccount]="acc">  </app-check>
+    </ng-container>
+    <ng-template #message>
+        <span id="message">{{message}}</span>
+    </ng-template>
+</main>

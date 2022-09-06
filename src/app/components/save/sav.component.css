@@ -1,0 +1,33 @@
+.savingDiv{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px; 
+    width: 100%;
+}
+
+.buttons{
+    margin-left: 68%;
+}
+
+.spacer{
+        marging-right:5px;
+        margin: 10px
+    
+}
+
+.savingDiv button{
+    background-color: ivory;
+    cursor: pointer;
+}
+
+.savingDiv button a{
+ font-size: 16px;
+}
+
+.savingDiv button a:hover{
+    color: white;
+   }
+
+.savingDiv button:hover{
+    background-color: purple;
+    transition: ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}

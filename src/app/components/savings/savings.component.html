@@ -1,1 +1,12 @@
-<p>savings works!</p>
+<main id = 'main'>
+    <h2> Savings Accounts</h2>
+    <ng-container *ngIf="accounts.length>0 else message">
+       <b>Search: </b><input [(ngModel)]="searchText" type="text">       
+        <app-sav 
+        *ngFor = "let acc of accounts" [savingAccount]="acc">  </app-sav>
+    </ng-container>
+    <ng-template #message>
+        <span id="message">{{ message }}</span>
+    </ng-template>
+</main>
+

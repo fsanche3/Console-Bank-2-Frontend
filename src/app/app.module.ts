@@ -19,8 +19,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
-import { CheckingsComponent } from './components/checkings/checkings.component';
 import { SavingsComponent } from './components/savings/savings.component';
+import { CheckingsComponent } from './components/checkings/checkings.component';
+import { CheckComponent } from './components/check/check.component';
+import { SaveComponent } from './components/save/sav.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -31,8 +34,10 @@ import { SavingsComponent } from './components/savings/savings.component';
     RegisterComponent,
     ProfileComponent,
     TransactionsComponent,
-    CheckingsComponent,
     SavingsComponent,
+    CheckingsComponent,
+    CheckComponent,
+    SaveComponent,
     
   ],
   imports: [
@@ -50,7 +55,7 @@ import { SavingsComponent } from './components/savings/savings.component';
     MatSidenavModule,
     
   ],
-  providers: [AuthService],
+  providers: [AuthService,AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
