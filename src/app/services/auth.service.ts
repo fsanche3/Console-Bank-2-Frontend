@@ -10,33 +10,70 @@ import { Bankuser } from '../models/bankuser';
 export class AuthService {
 
   tokenUrl: string = `${environment.baseUrl}`;
-  registerUrl: string = `${environment.baseUrl}/user`;
+  userUrl: string = `${environment.baseUrl}/user`;
+  loggedInUser: any;
 
- public token: string = '';
+  public token: string = '';
 
   constructor(private http: HttpClient) { }
 
- /* public generateToken(request) {
-    return this.httpClient.post<string>("http://localhost:9191/authenticate", request, {  responseType: 'text' as 'json' });
+  async getLoggedInUser() {
+    if (!this.loggedInUser) {
+      await this.getUser();
+    }
+    return this.loggedInUser;
   }
-  public welcome(token) {
-    let tokenStr = 'Bearer ' + token;
-    const headers = new HttpHeaders().set('Authorization', tokenStr);
-    return this.httpClient.get<string>("http://localhost:9191/", {headers, responseType: 'text' as 'json' });
-  }
-*/
-  login(username: string, password: string) {
-    const payload = {username:username, password:password};
-    return this.http.post<string>(`${this.tokenUrl}/login`, payload, {responseType: 'text' as 'json' }).pipe(
-      catchError((err) => {
-        return throwError(() => new Error('Entered wrong credentials'));
+
+
+  async login(username: string , password: string){
+    let credentials = {username, password};
+
+    let resp = await fetch(this.tokenUrl+"/login",{
+      method:'POST',
+      body:JSON.stringify(credentials),
+      headers:new Headers({
+          'Content-Type':'application/json'
       })
-    );
-  }
+  });
+      if(resp.status === 200){
+        let loggedInUser = await resp.json();
+
+        if(loggedInUser){
+          sessionStorage.setItem('token', resp.headers.get('Auth')!);
+          sessionStorage.setItem('userId', loggedInUser.id);
+          return true;
+        } 
+        return false;
+      } else {
+        return false;
+      }
+    }
+
+    logOut(){
+      this.loggedInUser = null;
+      sessionStorage.removeItem('userId');
+      sessionStorage.removeItem('Auth');
+    }
+
+    async getUser(){
+      let userId = sessionStorage.getItem('userId');
+      if(userId){
+        let resp = await fetch(this.userUrl+'/'+userId, {
+          headers: new Headers({
+            'Authorization': sessionStorage.getItem('token')!
+          })
+        });
+  
+        if (resp.ok) {
+          this.loggedInUser = await resp.json();
+        }
+  
+      }
+    }
 
   register(name: string, username: string, password: string, email: string ): Observable<boolean>{
     const payload = {name, username, password, email};
-    return this.http.post<boolean>(`${this.registerUrl}/register`, payload).pipe(
+    return this.http.post<boolean>(`${this.userUrl}/register`, payload).pipe(
       catchError((err) => {
         return throwError(() => new Error('Username taken'));
       })

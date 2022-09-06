@@ -10,10 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  show : boolean = false;
+  @Output() loggedIn: EventEmitter<any> = new EventEmitter();
+
   username: string  ='';
   password: string  =''; 
-  token: string= '';
+  message: string = '';
 
   constructor(private authServ: AuthService, private router: Router) { }
 
@@ -23,21 +24,22 @@ export class LoginComponent implements OnInit {
   register(){
     this.router.navigate(['register']);  }
 
-  getToken(username: string, password: string){
-    this.authServ.login(username, password)?.subscribe(
-      (response : any) => {
-        this.token = response
-      },
-    )
-  if (this.token == ''){
-    alert("Wrong username or password, try again or register account");
+  async login(){
+    this.message = '';
 
-  } else {
-     this.show = true;
-     sessionStorage.setItem('token', this.token);
-     this.router.navigate(['home']);
+    let success = await this.authServ.login(this.username, this.password);
+    if (success) {
+      // this will send the "loggedIn" event to the parent component
+      // we could respond in the parent by setting up event binding
+      // <app-login (loggedIn)="thingToHappen()"></app-login>
+      this.loggedIn.emit();
+      this.router.navigate(['home']);
+    } else {
+      this.message = 'Incorrect credentials. Please try again.';
     }
   }
+
+
 
 
 

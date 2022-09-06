@@ -2,6 +2,7 @@
 <div class="login-box">
 <form class="form">
     <h3 class="title"><i>Login</i></h3>
+    <span id="msg">{{message}}</span>
 <mat-form-field class="example-full-width" appearance="fill">
 <input matInput placeholder="Enter your username" name="username"
 [(ngModel)] ="username">
@@ -10,10 +11,9 @@
 <input matInput placeholder="Enter your password" value="" name="password" type="password" [(ngModel)]= "password">
 </mat-form-field>
 <div class="buttons">
-<button mat-raised-button color="primary" class ="buttons" (click)="getToken(username, password)">Login</button>
+<button mat-raised-button color="primary" class ="buttons" (click)="login()">Login</button>
  <button mat-raised-button class="buttons" (click)="register()" color="primary">Register</button>
 </div>
-<span *ngIf="show"> <button mat-button color="accent">Login success !!</button></span>
 </form>
 </div>
 </div>

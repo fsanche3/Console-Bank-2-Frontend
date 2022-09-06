@@ -12,22 +12,25 @@
         <div fxShow="true" fxHide.lt-md="true">
           <!-- The following menu items will be hidden on both SM and XS screen sizes -->
           <div class="nav-right">
-          <a routerLink="accounts" mat-button>
+          <a routerLink="accounts" *ngIf="loggedInUser" mat-button>
             <mat-icon>money</mat-icon>
             Accounts
           </a>
-          <a routerLink="transactions" mat-button>
+          <a routerLink="transactions" *ngIf="loggedInUser" mat-button>
             <mat-icon>message</mat-icon>
             Transactions
           </a>
-          <a routerLink="profile" mat-button>
+          <a routerLink="profile" *ngIf="loggedInUser" mat-button>
             <mat-icon>account_box</mat-icon>
             My Profile
           </a>
-          <a routerLink="login" mat-button>
-            <mat-icon>login</mat-icon>
-            Login
-          </a>
+          <span *ngIf="loggedInUser; else loginLink">
+            <a>{{ loggedInUser.username }}</a>
+            <a (click)="logout()" id="logoutBtn">Log Out</a>
+        </span>
+        <ng-template #loginLink>
+          <a routerLink="login" id="loginLink" mat-button>Log In</a>
+      </ng-template>
         </div>
         </div>
       </mat-toolbar-row>

@@ -9,7 +9,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 
 const routes: Routes = [
   {
-    path:'', redirectTo: 'home', 
+    path:'', redirectTo: 'login', 
     pathMatch: 'full'
   },
   {path : 'home',  component: HomeComponent},

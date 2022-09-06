@@ -12,4 +12,8 @@ export class AppComponent {
 
 constructor(private authServ: AuthService) { }
 
+async updateLogin() {
+  this.loggedInUser = await this.authServ.getLoggedInUser();
+}
+
 }

@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
 import { FormsModule } from '@angular/forms';
 import{MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
@@ -49,7 +48,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
     MatSidenavModule,
     
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
