@@ -10,13 +10,49 @@ export class AccountService {
   Url: string = `${environment.baseUrl}`;
 
   constructor() { }
-/*
-  public welcome(token) {
-    let tokenStr = 'Bearer ' + token;
-    const headers = new HttpHeaders().set('Authorization', tokenStr);
-    return this.httpClient.get<string>("http://localhost:9191/", {headers, responseType: 'text' as 'json' });
+
+  async deleteCheckings(){
+    
   }
-*/
+
+  async createCheckings(balance: number, name: string){
+    let info = {balance, name};
+      let resp = await fetch(this.Url+"/accounts/create_checkings",{
+        method:'POST',
+        body:JSON.stringify(info),
+        headers:new Headers({
+            'Content-Type':'application/json',
+            'Authorization': sessionStorage.getItem('token')+''
+        })
+    });
+
+      if(resp.status === 200){
+        return true;
+      } else {
+        return false;
+      }
+
+  }
+
+  async createSavings(balance: number, intrestrate: number, name: string){
+    let info = {balance,intrestrate,name};
+      let resp = await fetch(this.Url+"/accounts/create_savings",{
+        method:'POST',
+        body:JSON.stringify(info),
+        headers:new Headers({
+            'Content-Type':'application/json',
+            'Authorization': sessionStorage.getItem('token')+''
+        })
+    });
+
+      if(resp.status === 200){
+        return true;
+      } else {
+        return false;
+      }
+
+  }
+
 
 async getSavingAccounts(){
   let resp = await fetch(this.Url+"/accounts/get_savings",{

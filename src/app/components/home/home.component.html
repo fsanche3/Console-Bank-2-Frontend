@@ -4,16 +4,44 @@
     <div class="buttons">
         <button class="spacer" (click)="goToTransactions()"><a>Transactions</a></button>
         <button class="spacer" (click)="goToCheckings()"><a>Checking's Accounts</a></button>
-        <button class="spacer" ><a>Create</a></button>
+        <ng-container *ngIf="checkCreate else formCheck">
+        <button class="spacer" (click)="toggleCheck()"><a>Create</a></button>
+    </ng-container>
+    <ng-template #formCheck>
+        <div class="form">
+      <b>Balance</b> <input placeholder="Enter 00.00 form" name="balance"
+    [(ngModel)] ="balance">
+    <b>Account Name</b> <input placeholder="Enter Account name" name="name"
+    [(ngModel)] ="name">
+    <br>
+    <button class="cancel" (click)="toggleCheck()"><a>Cancel</a></button>
+    <button class="submit" (click)="createCheckings()"><a>Submit</a></button>
+</div>
+    </ng-template>
     </div>
 </div>
+
 <div class="box">
     <h2 class="title">Savings</h2>
     <div class="buttons">
         <button class="spacer" (click)="goToTransactions()"><a>Transactions</a></button>
         <button class="spacer" (click)="goToSavings()" ><a>Saving's Accounts</a></button>
-        <button class="spacer" ><a>Create</a></button>
-
+        <ng-container *ngIf="saveCreate else formSave">
+        <button class="spacer" (click)="toggleSave()"><a>Create</a></button>
+    </ng-container>
+    <ng-template #formSave>
+        <div class="form">
+      <b>Balance</b> <input placeholder="Enter 00.00 form" name="balance"
+    [(ngModel)] ="balance">
+    <b>Intrest Rate</b> <input placeholder="Enter 0.00 form" name="intrestrate"
+    [(ngModel)] ="intrestrate">
+    <b>Account Name</b> <input placeholder="Enter Account name" name="name"
+    [(ngModel)] ="name">
+    <br>
+    <button class="cancel" (click)="toggleSave()"><a>Cancel</a></button>
+    <button class="submit" (click)="createSavings()"><a>Submit</a></button>
+</div>
+    </ng-template>
     </div>
 </div>
 <div class="box">
