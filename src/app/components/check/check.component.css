@@ -5,6 +5,7 @@
 
 .buttons{
     margin-left: 68%;
+    margin-bottom: 2%;
 }
 
 .spacer{
@@ -30,4 +31,29 @@
     background-color: purple;
     transition: ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
+}
+
+.form{
+    display: grid;
+    padding-right: 30%;
+    padding-bottom: 5%;
+    width: 75%;
+    }
+
+.cancel{
+ margin-top: 2%;
+ margin-bottom: 2%;
+}
+
+.info {
+    padding-top: 3%;
+    padding-left: 5%;
+}
+
+.nice-font {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#title{
+    font-size: 23px;
 }

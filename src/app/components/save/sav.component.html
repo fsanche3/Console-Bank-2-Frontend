@@ -1,13 +1,35 @@
 <div class="savingDiv">
-    <h3>Account Name: {{savingAccount.name}}</h3>
+    <div class="info">
+    <h3 class="nice-font" id="title">Account Name: {{savingAccount.name}}</h3>
     <p>Balance: ${{savingAccount.balance}}</p>
-    <p>Intrest-Rate: {{savingAccount.intrestrate}}%</p>
+    <p>Intrest-Rate: %{{savingAccount.intrestrate}}</p>
     <p>Creation Date: {{savingAccount.creationdate | date: 'short'}}</p>
+</div>
     <div class="buttons">
-        <button class="spacer" ><a>Deposit</a></button>
-        <button class="spacer" ><a>Withdrawl</a></button>
-        <button class="spacer" ><a>Apply Intrest</a></button>
-        <button class="spacer" ><a>Delete</a></button>
+        <ng-container *ngIf="depositS else depositForm">
+        <ng-container *ngIf="withdraw else withdrawlForm">
+         <button class="spacer" (click)="toggleDeposit()" [id]="savingAccount.id" ><a class="nice-font">Deposit</a></button>
+        <button class="spacer" (click)="toggleWithdraw()" [id]="savingAccount.id"><a class="nice-font">Withdrawl</a></button>
+        <button class="spacer" (click)="applyIntrest()"  [id]="savingAccount.id"><a class="nice-font">Apply Intrest</a></button>
+        <button class="spacer" (click)="deleteSavingAccount()" [id]="savingAccount.id"><a class="nice-font">Delete</a></button>
+    </ng-container>
+</ng-container>
+<ng-template #depositForm>
+    <div class="form">
+        <b>Enter Amount You Would Like Deposited</b> <input placeholder="Enter 00.00 form" name="balance"
+      [(ngModel)] ="balance">
+<button class="cancel" (click)="toggleDeposit()"><a class="nice-font">Cancel</a></button>
+<button class="submit" (click)="deposit()"><a class="nice-font">Submit</a></button>
+</div>
+</ng-template>
+    <ng-template #withdrawlForm>
+        <div class="form">
+            <b>Enter Amount For Withdrawl</b> <input placeholder="Enter 00.00 form" name="balance"
+          [(ngModel)] ="balance">
+    <button class="cancel" (click)="toggleWithdraw()"><a class="nice-font">Cancel</a></button>
+    <button class="submit" (click)="withdrawl()"><a class="nice-font">Submit</a></button>
+</div>
+    </ng-template>
 
 
     </div>

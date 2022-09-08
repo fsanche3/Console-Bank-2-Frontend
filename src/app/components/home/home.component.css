@@ -41,14 +41,6 @@
 margin-left: 64%;
 }
 
-.title {
-    font-family:"Times New Roman",Georgia,Serif;
-
-    font-size: 25px;
-    margin: 8px;
-    margin-left: 11px;
-}
-
 .form{
 display: grid;
 padding-right: 30%;
@@ -58,4 +50,17 @@ width: 75%;
 
 .cancel{
     margin-bottom: 3%;
+}
+
+.info {
+    padding-top: 3%;
+    padding-left: 5%;
+}
+
+.nice-font {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#title{
+    font-size: 23px;
 }

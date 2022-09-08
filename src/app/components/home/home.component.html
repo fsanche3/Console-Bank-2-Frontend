@@ -1,6 +1,8 @@
 <div class="container">
 <div class="box">
-    <h2 class="title">Checkings</h2>
+    <div class="info">
+    <h2 id="title" class="nice-font">Checkings</h2>
+</div>
     <div class="buttons">
         <button class="spacer" (click)="goToTransactions()"><a>Transactions</a></button>
         <button class="spacer" (click)="goToCheckings()"><a>Checking's Accounts</a></button>
@@ -22,7 +24,9 @@
 </div>
 
 <div class="box">
-    <h2 class="title">Savings</h2>
+    <div class="info">
+        <h2 id="title" class="nice-font">Savings</h2>
+    </div>
     <div class="buttons">
         <button class="spacer" (click)="goToTransactions()"><a>Transactions</a></button>
         <button class="spacer" (click)="goToSavings()" ><a>Saving's Accounts</a></button>

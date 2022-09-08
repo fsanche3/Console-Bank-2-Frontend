@@ -1,5 +1,7 @@
 <main id = 'main'>
-    <h2> Checkings Accounts </h2>
+    <div class="info">
+        <h2 id="title" class="nice-font">Checking Accounts</h2>
+    </div>
     <ng-container *ngIf="accounts.length>0 else message">
        <b>Search: </b><input [(ngModel)]="searchText" type="text">       
         <app-check 

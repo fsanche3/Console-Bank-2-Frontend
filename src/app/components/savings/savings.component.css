@@ -1,6 +1,18 @@
 #main{
-    width: 85%;
+    width: 90%;
     padding-left: 5%;
     padding-right: 5%;
 
+}
+
+.info {
+    padding-left: 2%;
+}
+
+.nice-font {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#title{
+    font-size: 23px;
 }

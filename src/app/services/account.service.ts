@@ -11,8 +11,129 @@ export class AccountService {
 
   constructor() { }
 
-  async deleteCheckings(){
+  async applyIntrest(id: number){
+    let resp =  await fetch(this.Url+"/accounts/apply_intrest/"+id,{
+      method: 'PUT',
+      headers:new Headers({
+        'Content-Type':'application/json',
+        'Authorization': sessionStorage.getItem('token')+''
+    })
+    });
+
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async depositSaving(id: number, balance: number){
+    let info = {balance};
+    let resp = await fetch(this.Url+"/accounts/deposit_savings/"+id,{
+      method: 'PUT',
+      body:JSON.stringify(info),
+      headers:new Headers({
+        'Content-Type':'application/json',
+        'Authorization': sessionStorage.getItem('token')+''
+    })
+    });
+
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async depositChecking(id: number, balance: number){
+    let info = {balance};
+
+    let resp = await fetch(this.Url+"/accounts/deposit_checkings/"+id,{
+      method: 'PUT',
+      body:JSON.stringify(info),
+      headers:new Headers({
+        'Content-Type':'application/json',
+        'Authorization': sessionStorage.getItem('token')+''
+    })
+    });
+
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async withdrawlChecking(id: number,balance: number, name: string){
+    let newBalance = {id,balance, name};
+
+    let resp = await fetch (this.Url+"/accounts/withdrawl_checkings",{
+      method:'PUT',
+      body:JSON.stringify(newBalance),
+      headers:new Headers({
+          'Content-Type':'application/json',
+          'Authorization': sessionStorage.getItem('token')+''
+      })
+  });
+
+  if(resp.status === 200){
+    return true;
+  } else {
+    return false;
+  }
+  }
+
+  async withdrawlSaving(id: number,balance: number, name: string){
+    let newBalance = {id,balance, name};
+
+    let resp = await fetch (this.Url+"/accounts/withdrawl_savings",{
+      method:'PUT',
+      body:JSON.stringify(newBalance),
+      headers:new Headers({
+          'Content-Type':'application/json',
+          'Authorization': sessionStorage.getItem('token')+''
+      })
+  });
+
+  if(resp.status === 200){
+    return true;
+  } else {
+    return false;
+  }
+  }
+
+  async deleteCheckings(id: number){
     
+    let resp = await fetch(this.Url+"/accounts/remove_checkings/"+id,{
+      method:'DELETE',
+      headers:new Headers({
+          'Content-Type':'application/json',
+          'Authorization': sessionStorage.getItem('token')+''
+      })
+  });
+
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async deleteSavings(id: number){
+    
+    let resp = await fetch(this.Url+"/accounts/remove_savings/"+id,{
+      method:'DELETE',
+      headers:new Headers({
+          'Content-Type':'application/json',
+          'Authorization': sessionStorage.getItem('token')+''
+      })
+  });
+
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   async createCheckings(balance: number, name: string){
