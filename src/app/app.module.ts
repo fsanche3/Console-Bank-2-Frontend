@@ -24,6 +24,8 @@ import { CheckingsComponent } from './components/checkings/checkings.component';
 import { CheckComponent } from './components/check/check.component';
 import { SaveComponent } from './components/save/sav.component';
 import { AccountService } from './services/account.service';
+import {UserService} from './services/user.service';
+import { NameSearchPipe } from './pipes/name-search.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { AccountService } from './services/account.service';
     CheckingsComponent,
     CheckComponent,
     SaveComponent,
+    NameSearchPipe,
     
   ],
   imports: [
@@ -55,7 +58,7 @@ import { AccountService } from './services/account.service';
     MatSidenavModule,
     
   ],
-  providers: [AuthService,AccountService],
+  providers: [AuthService,AccountService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

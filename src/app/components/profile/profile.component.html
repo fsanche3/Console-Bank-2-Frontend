@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<main>
+    <div class="box">
+<h2 id="title" class="nice-font">{{name | uppercase}}</h2>
+<div class="box2">
+    <ng-container *ngIf="usernameChange else usernameform">
+        <ng-container *ngIf="emailChange else emailform">
+<p class="nice-font" class="info">Username: {{username}}<mat-icon style="cursor:pointer;"><a (click)="toggleUsernameChange()">build</a></mat-icon></p>
+<p class = "nice-font" class = "info">Email: {{email}}<mat-icon style="cursor:pointer;"><a (click)="toggleEmailChange()">build</a></mat-icon></p>
+</ng-container>
+    </ng-container>
+<ng-template #usernameform>
+    <div class="form">
+        <b>Enter Your New Username</b> <input placeholder="username" name="username"
+      [(ngModel)] ="username">
+<button class="cancel" (click)="toggleUsernameChange()"><a class="nice-font">Cancel</a></button>
+<button class="submit" (click)="changeUsername()"><a class="nice-font">Submit</a></button>
+</div>
+</ng-template>
+<ng-template #emailform>
+    <div class="form">
+        <b>Enter Your New Email</b> <input placeholder="email" name="email"
+      [(ngModel)] ="email">
+<button class="cancel" (click)="toggleEmailChange()"><a class="nice-font">Cancel</a></button>
+<button class="submit" (click)="changeEmail()"><a class="nice-font">Submit</a></button>
+</div>
+</ng-template>
+</div>
+</div>
+</main>

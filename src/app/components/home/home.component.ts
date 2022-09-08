@@ -67,6 +67,10 @@ async createSavings(){
     this.router.navigate(['checkings']);
   }
 
+  goToProfile(){
+    this.router.navigate(['profile']);
+  }
+
 
 
 }
