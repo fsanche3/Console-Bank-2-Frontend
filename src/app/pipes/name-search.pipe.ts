@@ -5,8 +5,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NameSearchPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(accounts: any[], searchText: string): any[] {
+
+    let filteredAccounts: any[] = [];
+
+    for (let acc of accounts) {
+      if (acc.name.toLowerCase().includes(searchText.toLowerCase())
+        || acc.creationdate.toLowerCase().includes(searchText.toLowerCase())) {
+        filteredAccounts.push(acc);
+      }
+    }
+
+    return filteredAccounts;
   }
 
 }

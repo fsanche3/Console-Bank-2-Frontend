@@ -1,4 +1,4 @@
-<div style="height: auto;">
+<div class="pos" style="height: auto;">
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -39,8 +39,8 @@
      
     </mat-toolbar>
 
-    <mat-sidenav-container fxFlexFill>
-      <mat-sidenav #sidenav>
+    <mat-sidenav-container  fxFlexFill>
+      <mat-sidenav mode="over" #sidenav>
         <mat-nav-list>
           <a routerLink="accounts" mat-list-item>
             <mat-icon>money</mat-icon>

@@ -3,9 +3,9 @@
         <h2 id="title" class="nice-font">Checking Accounts</h2>
     </div>
     <ng-container *ngIf="accounts.length>0 else message">
-       <b>Search: </b><input [(ngModel)]="searchText" type="text">       
+       <b>Search Account Name: </b><input [(ngModel)]="searchText" type="text">       
         <app-check 
-        *ngFor = "let acc of accounts" [checkingAccount]="acc">  </app-check>
+        *ngFor = "let acc of accounts | nameSearch: searchText" [checkingAccount]="acc">  </app-check>
     </ng-container>
     <ng-template #message>
         <span id="message">No accounts to show</span>
