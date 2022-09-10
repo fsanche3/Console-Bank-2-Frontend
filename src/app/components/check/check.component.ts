@@ -50,15 +50,7 @@ export class CheckComponent implements OnInit {
   }
 
   async withdrawl(){
-    let newBalance = this.checkingAccount.balance - this.balance;
-
-    if(newBalance < 0){
-      alert("Negative Withdrawls cannot be made");
-
-      newBalance = this.checkingAccount.balance;
-    }
-
-    let pass = await this.acc.withdrawlChecking(this.checkingAccount.id ,newBalance, this.checkingAccount.name);
+    let pass = await this.acc.withdrawlChecking(this.checkingAccount.id ,this.balance);
     if(pass){
       this.withdraw = !this.withdraw;
       window.location.reload();

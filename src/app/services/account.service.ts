@@ -64,10 +64,10 @@ export class AccountService {
     }
   }
 
-  async withdrawlChecking(id: number,balance: number, name: string){
-    let newBalance = {id,balance, name};
+  async withdrawlChecking(id: number,balance: number){
+    let newBalance = {id,balance};
 
-    let resp = await fetch (this.Url+"/accounts/withdrawl_checkings",{
+    let resp = await fetch (this.Url+"/accounts/withdrawl_checkings/"+id,{
       method:'PUT',
       body:JSON.stringify(newBalance),
       headers:new Headers({
@@ -83,10 +83,10 @@ export class AccountService {
   }
   }
 
-  async withdrawlSaving(id: number,balance: number, name: string){
-    let newBalance = {id,balance, name};
+  async withdrawlSaving(id: number,balance: number){
+    let newBalance = {id,balance};
 
-    let resp = await fetch (this.Url+"/accounts/withdrawl_savings",{
+    let resp = await fetch (this.Url+"/accounts/withdrawl_savings/"+id,{
       method:'PUT',
       body:JSON.stringify(newBalance),
       headers:new Headers({

@@ -56,15 +56,8 @@ export class SaveComponent implements OnInit {
   }
 
   async withdrawl(){
-    let newBalance = this.savingAccount.balance - this.balance;
-
-    if(newBalance < 0){
-      alert("Negative Withdrawls cannot be made");
-
-      newBalance = this.savingAccount.balance;
-    }
-
-    let pass = await this.acc.withdrawlSaving(this.savingAccount.id ,newBalance, this.savingAccount.name);
+    
+    let pass = await this.acc.withdrawlSaving(this.savingAccount.id ,this.balance);
     if(pass){
       this.withdraw = !this.withdraw;
       window.location.reload();
