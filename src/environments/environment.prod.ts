@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   withCredentials: true,
   baseUrl: "http://ec2-34-234-73-192.compute-1.amazonaws.com:8080",
   headers: {

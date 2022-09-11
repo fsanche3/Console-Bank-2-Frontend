@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -17,7 +18,7 @@ export class CheckComponent implements OnInit {
   withdraw: boolean = true;
   depositC: boolean = true;
 
-  constructor(private auth: AuthService, private acc: AccountService) { }
+  constructor(private auth: AuthService, private acc: AccountService, private router: Router) { }
 
   ngOnInit(): void {
     this.getLoggedInUser();
@@ -68,6 +69,9 @@ export class CheckComponent implements OnInit {
     }
   }
 
+  goToTransactions(){
+    this.router.navigate(['transactions']);
+  }
   
 
 }

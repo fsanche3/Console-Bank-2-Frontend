@@ -1,1 +1,15 @@
-<p>transactions works!</p>
+<main id = 'main'>
+    <div class="info">
+        <h2 id="title" class="nice-font">Transactions</h2>
+    </div>
+    <ng-container *ngIf="transactions.length>0 else message">
+       <b>Search Account Name: </b><input [(ngModel)]="searchText" type="text">       
+        <app-transaction 
+        *ngFor = "let transaction of transactions | nameSearch: searchText" [transaction]="transaction">  
+        </app-transaction>
+    </ng-container>
+    <ng-template #message>
+        <span id="message">No Transactions to show</span>
+    </ng-template>
+   
+</main>

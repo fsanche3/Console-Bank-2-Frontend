@@ -20,7 +20,6 @@ export class CheckingsComponent implements OnInit {
 
   async getCheckings(){
     let resp = await this.acc.getCheckingAccounts();
-    console.log(resp);
     this.accounts = resp;
 
   }

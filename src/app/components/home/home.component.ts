@@ -55,10 +55,6 @@ async createSavings(){
     }
   }
 
-  goToTransactions(){
-    this.router.navigate(['transactions']);
-  }
-
   goToSavings(){
     this.router.navigate(['savings']);
   }

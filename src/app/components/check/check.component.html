@@ -7,6 +7,7 @@
     <div class="buttons">
         <ng-container *ngIf="depositC else depositForm">
         <ng-container *ngIf="withdraw else withdrawlForm">
+            <button class="spacer" (click)="goToTransactions()" [id]="checkingAccount.id"><a class="nice-font">Transactions</a></button>
             <button class="spacer" (click)="toggleDeposit()" [id]="checkingAccount.id"><a class="nice-font">Deposit</a></button>
         <button class="spacer" (click)="toggleWithdraw()" [id]="+checkingAccount.id"><a class="nice-font">Withdrawl</a></button>
         <button class="spacer" (click)="deleteCheckingAccount()" [id]="checkingAccount.id"><a class="nice-font">Delete</a></button>
@@ -14,7 +15,7 @@
     </ng-container>
     <ng-template #depositForm>
         <div class="form">
-            <b>Enter Amount You Would Like Deposited</b> <input placeholder="Enter 00.00 form" name="balance2"
+            <strong>Enter Amount You Would Like Deposited</strong> <input placeholder="Enter 00.00 form" name="balance2"
           [(ngModel)] ="balance2">
     <button class="cancel" (click)="toggleDeposit()"><a class="nice-font">Cancel</a></button>
     <button class="submit" (click)="deposit()"><a class="nice-font">Submit</a></button>
@@ -22,7 +23,7 @@
 </ng-template>
     <ng-template #withdrawlForm>
         <div class="form">
-            <b>Enter Amount For Withdrawl</b> <input placeholder="Enter 00.00 form" name="balance"
+            <strong>Enter Amount For Withdrawl</strong> <input placeholder="Enter 00.00 form" name="balance"
           [(ngModel)] ="balance">
     <button class="cancel" (click)="toggleWithdraw()"><a class="nice-font">Cancel</a></button>
     <button class="submit" (click)="withdrawl()"><a class="nice-font">Submit</a></button>

@@ -5,7 +5,6 @@
     <h2 id="title" class="nice-font">Checkings</h2>
 </div>
     <div class="buttons">
-        <button class="spacer" (click)="goToTransactions()"><a>Transactions</a></button>
         <button class="spacer" (click)="goToCheckings()"><a>Checking's Accounts</a></button>
         <ng-container *ngIf="checkCreate else formCheck">
         <button class="spacer" (click)="toggleCheck()"><a>Create</a></button>
@@ -29,7 +28,6 @@
         <h2 id="title" class="nice-font">Savings</h2>
     </div>
     <div class="buttons">
-        <button class="spacer" (click)="goToTransactions()"><a>Transactions</a></button>
         <button class="spacer" (click)="goToSavings()" ><a>Saving's Accounts</a></button>
         <ng-container *ngIf="saveCreate else formSave">
         <button class="spacer" (click)="toggleSave()"><a>Create</a></button>
@@ -55,8 +53,6 @@
     </div>
     <div class="buttons">
         <button class="spacer" (click)="goToProfile()"><a>My Profile</a></button>
-        <button class="spacer" (click)="goToProfile()"><a>Change Username</a></button>
-        <button class="spacer" (click)="goToProfile()"><a>Change Email</a></button>
 
 </div>
 </div>

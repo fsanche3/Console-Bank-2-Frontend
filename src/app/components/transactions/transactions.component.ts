@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-transactions',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponent implements OnInit {
 
-  constructor() { }
+  message: string = "You don't have any transactions for this account";
+  transactions: any[]= [];
+  searchText:string = '';
+  loggedInUser: any;
+  
+  
+
+  constructor(private auth: AuthService,private transac: TransactionService) { }
 
   ngOnInit(): void {
+  this.getTransactions();    
+
+  }
+
+  async getTransactions(){
+  }
+
+  async getUser(){
+    this.loggedInUser = await this.auth.getLoggedInUser();
   }
 
 }
