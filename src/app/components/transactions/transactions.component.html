@@ -3,13 +3,12 @@
         <h2 id="title" class="nice-font">Transactions</h2>
     </div>
     <ng-container *ngIf="transactions.length>0 else message">
-       <b>Search Account Name: </b><input [(ngModel)]="searchText" type="text">       
         <app-transaction 
-        *ngFor = "let transaction of transactions | nameSearch: searchText" [transaction]="transaction">  
+        *ngFor = "let transaction of transactions" [transaction]="transaction">  
         </app-transaction>
     </ng-container>
     <ng-template #message>
-        <span id="message">No Transactions to show</span>
+        <span id="message">This account may have no transactions. Please try selecting the account again or choosing another.</span>
     </ng-template>
    
 </main>

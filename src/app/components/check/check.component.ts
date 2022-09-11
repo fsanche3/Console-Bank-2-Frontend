@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-check',
@@ -18,7 +19,7 @@ export class CheckComponent implements OnInit {
   withdraw: boolean = true;
   depositC: boolean = true;
 
-  constructor(private auth: AuthService, private acc: AccountService, private router: Router) { }
+  constructor(private auth: AuthService, private acc: AccountService, private router: Router, private transactionServ: TransactionService) { }
 
   ngOnInit(): void {
     this.getLoggedInUser();
@@ -70,6 +71,7 @@ export class CheckComponent implements OnInit {
   }
 
   goToTransactions(){
+    this.transactionServ.setCheckingId(this.checkingAccount.id);
     this.router.navigate(['transactions']);
   }
   

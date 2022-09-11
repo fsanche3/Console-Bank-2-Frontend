@@ -7,8 +7,17 @@ import { environment } from 'src/environments/environment';
 export class TransactionService {
 
   Url: string = `${environment.baseUrl}`;
+  checkingId: number = 0;
 
   constructor() { }
+
+  setCheckingId(id: number){
+    this.checkingId = id;
+  }
+
+  getCheckingId(){
+    return this.checkingId;
+  }
 
   async getCheckingTransaction(id:number){
     let resp = await fetch(this.Url+"/transactions/get_checkings/"+id,{

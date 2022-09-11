@@ -19,11 +19,12 @@ export class TransactionsComponent implements OnInit {
   constructor(private auth: AuthService,private transac: TransactionService) { }
 
   ngOnInit(): void {
-  this.getTransactions();    
-
+    this.getTransactions();
   }
 
   async getTransactions(){
+    let resp = await this.transac.getCheckingTransaction(this.transac.getCheckingId());
+    this.transactions = resp;
   }
 
   async getUser(){

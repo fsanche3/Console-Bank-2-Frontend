@@ -1,0 +1,16 @@
+.transaction-div{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px; 
+}
+
+.info {
+    padding-top: 3%;
+    padding-left: 5%;
+}
+
+.nice-font {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#title{
+    font-size: 23px;
+}
