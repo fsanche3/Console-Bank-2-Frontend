@@ -1,4 +1,4 @@
-# Console Bank 2.0 Front-end
+# Console Bank 2.0 (FrontEnd)
 
 ## Description
  This angular app was created to levarge [the Console Bank API](https://github.com/fsanche3/Console-Bank-App-2) and serve as its front end. It makes use of core angular elements such as session storage to validate recognized users, custom pipes to filter through records, and angular guards. For deployment, the app makes use of an AWS S3 bucket along with an AWS CI/CD Pipeline for automation.
