@@ -22,7 +22,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { SavingsComponent } from './components/savings/savings.component';
 import { CheckingsComponent } from './components/checkings/checkings.component';
 import { CheckComponent } from './components/check/check.component';
-import { SaveComponent } from './components/save/sav.component';
+import { SaveComponent } from './components/save/save.component';
 import { AccountService } from './services/account.service';
 import {UserService} from './services/user.service';
 import { NameSearchPipe } from './pipes/name-search.pipe';

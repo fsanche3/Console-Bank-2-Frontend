@@ -1,7 +1,7 @@
 <div class="checkingDiv">
     <div class="info">
     <h3 class="nice-font" id="title">Account Name: {{checkingAccount.name | uppercase}}</h3>
-    <p>Balance: ${{checkingAccount.balance}}</p>
+    <p>Balance: ${{checkingAccount.balance | number: '1.0-2'}}</p>
     <p>Creation Date: {{checkingAccount.creationdate | date: 'short'}}</p>
 </div>
     <div class="buttons">

@@ -8,11 +8,31 @@ export class TransactionService {
 
   Url: string = `${environment.baseUrl}`;
   checkingId: number = 0;
+  savingId: number  = 0;
+  //True is saving false is checking
+  accountType: boolean= false;
 
   constructor() { }
 
+  setAccountType(type:boolean){
+    this.accountType = type;
+  }
+
+  getAccountType(){
+    return this.accountType;
+  }
+  setSavingId(id: number){
+    this.savingId = id;
+    this.setAccountType(true);
+  }
+
+  getSavingId(){
+    return this.savingId;
+  }
+
   setCheckingId(id: number){
     this.checkingId = id;
+    this.setAccountType(false);
   }
 
   getCheckingId(){

@@ -1,11 +1,32 @@
 .transaction-div{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    margin-bottom: 15px; 
 }
 
 .info {
-    padding-top: 3%;
-    padding-left: 5%;
+    padding-top: 5%;
+    padding-left: 25%;
 }
+
+.info-two{
+    margin-left: 68%;
+    margin-bottom: 2%;
+}
+
+.box{
+    display: inline-flex;
+}
+
+.dollar{
+    position: absolute;
+    padding-left: 60%;
+    padding-top: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 19px;
+}
+
+
+
 
 .nice-font {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

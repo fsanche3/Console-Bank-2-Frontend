@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-sav',
-  templateUrl: './sav.component.html',
-  styleUrls: ['./sav.component.css']
+  templateUrl: './save.component.html',
+  styleUrls: ['./save.component.css']
 })
 export class SaveComponent implements OnInit {
 
@@ -16,7 +18,8 @@ export class SaveComponent implements OnInit {
   depositS: boolean = true;
 
 
-  constructor(private auth: AuthService, private acc: AccountService) { }
+  constructor(private auth: AuthService, private acc: AccountService,private transac: TransactionService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.auth.getLoggedInUser();
@@ -24,6 +27,11 @@ export class SaveComponent implements OnInit {
 
   async getLoggedInUser() {
     this.loggedInUser = await this.auth.getLoggedInUser();
+  }
+
+  goToTransactions(){
+    this.transac.setSavingId(this.savingAccount.id);
+    this.router.navigate(['transactions']);
   }
 
  async applyIntrest(){

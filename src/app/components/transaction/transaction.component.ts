@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TransactionComponent implements OnInit {
 
   description: string = "";
+  history: string = "";
   @Input() transaction: any; 
 
 
@@ -20,8 +21,13 @@ export class TransactionComponent implements OnInit {
   setDescription(){
     if(this.transaction.signal === "+"){
       this.description = "Deposit";
-    } else {
+      this.history = "Deposited";
+    } else if (this.transaction.signal === "-"){
       this.description = "Withdrawl"
+      this.history = "Withdrew";
+    } else {
+      this.description = "Interest Applied";
+      this.history = "Interest Amount Earned";
     }
   }
 

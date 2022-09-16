@@ -23,8 +23,13 @@ export class TransactionsComponent implements OnInit {
   }
 
   async getTransactions(){
+    if(this.transac.getAccountType()){
+      let resp = await this.transac.getSavingTransaction(this.transac.getSavingId());
+      this.transactions = resp;
+    } else {
     let resp = await this.transac.getCheckingTransaction(this.transac.getCheckingId());
     this.transactions = resp;
+    }
   }
 
   async getUser(){

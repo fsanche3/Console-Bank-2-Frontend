@@ -14,31 +14,28 @@ export class RegisterComponent implements OnInit {
   password: string = '';
   email: string  = '';
   message: string = 'Username or email already in use';
-  show: boolean  = false;
+  bool: boolean = false;
 
   constructor(private authServ: AuthService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
-  alert(b: boolean){
-    if(!b){
-      this.show = true;
-      alert("Username or email already in use");
-    } else {
-      this.router.navigate(['register']);
-    }
-  }
-
   home(){
     this.router.navigate(['home']);
   }
+  
   register(name: string, username: string, password: string, email: string){
     this.authServ.register(name,username, password,email)?.subscribe(
       (response : boolean) => {
-        this.alert(response);
+        this.bool = response;
       },
     )
+    if(this.bool){
+      this.home();
+    } else {
+      alert("Username or email already in use");
+    }
     
 
   }

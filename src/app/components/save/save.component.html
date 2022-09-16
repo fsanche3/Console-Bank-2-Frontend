@@ -1,13 +1,14 @@
 <div class="savingDiv">
     <div class="info">
     <h3 class="nice-font" id="title">Account Name: {{savingAccount.name | uppercase}}</h3>
-    <p>Balance: ${{savingAccount.balance}}</p>
+    <p>Balance: ${{savingAccount.balance | number: '1.0-2'}}</p>
     <p>Intrest-Rate: %{{savingAccount.intrestrate}}</p>
     <p>Creation Date: {{savingAccount.creationdate | date: 'short'}}</p>
 </div>
     <div class="buttons">
         <ng-container *ngIf="depositS else depositForm">
         <ng-container *ngIf="withdraw else withdrawlForm">
+            <button class="spacer" (click)="goToTransactions()" [id]="savingAccount.id"><a class="nice-font">Transactions</a></button>
          <button class="spacer" (click)="toggleDeposit()" [id]="savingAccount.id" ><a class="nice-font">Deposit</a></button>
         <button class="spacer" (click)="toggleWithdraw()" [id]="savingAccount.id"><a class="nice-font">Withdrawl</a></button>
         <button class="spacer" (click)="applyIntrest()"  [id]="savingAccount.id"><a class="nice-font">Apply Intrest</a></button>
