@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
+import { AnimationDriver } from '@angular/animations/browser';
 
-fdescribe('AuthService', () => {
+describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
@@ -50,8 +51,29 @@ fdescribe('AuthService', () => {
 
   it('should get and set loggenInUser', async () => {
     service.loggedInUser = {};
+    let fakeResp = new Response('{"id":"test"}',
+    {status:200, headers:new Headers({'Auth':'test'})}
+  );
+    spyOn(window, 'fetch').and.resolveTo(fakeResp);
     spyOn(sessionStorage,'getItem').and.returnValue("test");
-    
-    expect(await service.loggedInUser).toBeFalsy();
+    await service.getUser();
+
+    expect(service.loggedInUser).toBeTruthy();
   });
+
+  it('should get and set loggedInUser if not already', async () => {
+    service.loggedInUser = null;  
+    spyOn(service, 'getUser').and.resolveTo();
+    await service.getLoggedInUser();
+
+    expect(service.getUser).toHaveBeenCalledTimes(1);
+  });
+
+
+  it('should add user successfully', () => {
+    expect(service.register("","","","")).toBeTruthy();
+  });
+
+
+
 });
