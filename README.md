@@ -22,6 +22,9 @@ https://user-images.githubusercontent.com/60365292/190728523-d3dc313f-e6b8-4e64-
 
 https://user-images.githubusercontent.com/60365292/190728827-2dfbc457-e5a2-4759-b086-a55569db78ff.mp4
 
+- Profile
+
+https://user-images.githubusercontent.com/60365292/190730469-6b7005da-3714-4938-9056-da3559d3d58c.mp4
 
 ### Code Coverage 
 ![]()
