@@ -5,17 +5,22 @@ env:
         CACHE_CONTROL: "86400"
         S3_BUCKET: "{{s3_bucket_url}}"
         BUILD_FOLDER: "dist"
+
 phases:
-  commands:
-     - echo Installing source NPM dependencies...
-     - npm install
-     - npm install -g @angular/cli
+  install:
+    commands:
+      - curl -fsSL https://dev.nodesource.com/setup_16.x | sudo -E bash -
+      - yum install gcc-c++ make
+  pre_build:
+    commands:
+      - npm i -g @angular/cli
+      - npm install --force
   build:
     commands:
-        - echo Build started 
-        - ng build
+      - ng build
+
 artifacts:
-    files:
-        - '**/*'
-    base-directory: 'dist*'
-    discard-paths: yes
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist/console-bank-2
