@@ -30,7 +30,7 @@ https://user-images.githubusercontent.com/60365292/190730469-6b7005da-3714-4938-
 ![]()
 
 ## Back End
-- API - https://github.com/fsanche3/Console-Bank-App-2
+- Backend/API - https://github.com/fsanche3/Console-Bank-App-2
 
 ## Author
 [Franklyn Sanchez](https://github.com/fsanche3)
